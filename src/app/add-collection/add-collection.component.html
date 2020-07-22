@@ -1,0 +1,68 @@
+<div class="admin-menu-products-colections-header-sticky">
+    <div class="admin-menu-products-colections-header-sticky-titles">
+        <h3>Add Collection</h3>
+    </div>
+</div>
+
+<div class="admin-menu-products-colections-header-sticky-div">
+</div>
+
+
+
+<form [formGroup]="loginForm2"
+      (ngSubmit)="onSubmit()">
+    <div class="admin-menu-products-colections-product-container-margins-flex">
+        <div class="admin-menu-products-colections-product-container-margins">
+            <br>
+            <legend><span class="number">1</span> &nbsp;Add a photo for the background of the collection</legend>
+            <br>
+
+            <div class="admin-menu-products-colections-product-container-photos">
+
+                <div class="cards">
+                    <div>
+                        <div style='
+                                              border-radius: 4px;
+                                              border: 1px solid #EAEAEA;
+                                              -webkit-background-size: cover;
+                                              -moz-background-size: cover;
+                                              -o-background-size: cover;
+                                              background-size: cover;
+                                              background-repeat: no-repeat;
+                                              height:250px;
+                                              width:400px;
+                                              background-color: #cccccc;
+                                              background-position: center;'
+                             [style.background-image]="'url('+response1+')'"
+                             alt="pname"></div>
+                        <br>
+                        <input type='file'
+                               (change)='onFileSelected1($event)'>
+                        <br>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <br><br>
+            <legend><span class="number">2</span> &nbsp;Add the Name of the collection</legend>
+            <input class="app-input"
+                   type="text"
+                   autocomplete="on"
+                   formControlName="collectionName"
+                   value="Name of the product.."><br><br>
+            <legend><span class="number">3</span> &nbsp;Add the url for the collection</legend>
+            <input class="app-input"
+                   type="text"
+                   autocomplete="on"
+                   formControlName="collectionUrl"
+                   value="Name of the product.."><br><br>
+            <a class="app-button"
+               (click)="onSubmit()">Add collection</a>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</form>

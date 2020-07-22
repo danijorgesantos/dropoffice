@@ -1,0 +1,40 @@
+<div class="admin-page-authentication-container">
+    <div class="admin-page-authentication-container-box">
+        <div class="admin-page-authentication-container-box-top">
+        </div>
+        <form [formGroup]="loginForm"
+              (ngSubmit)="onSubmit()">
+            <div class="admin-page-authentication-container-box-top-input-button">
+                <br>
+                <br>
+                <h2 class="admin-page-authentication-company">DC Digital Operations Page</h2>
+                <br>
+
+                <input class="admin-menu-products-colections-product-input"
+                       autocomplete="on"
+                       type="text"
+                       formControlName="email"
+                       value="Email..">
+                <div *ngIf="submitted && f.username.errors"
+                     class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+                <br><br>
+
+                <input class="admin-menu-products-colections-product-input"
+                       autocomplete="on"
+                       type="password"
+                       formControlName="password"
+                       value="Password..">
+                <div *ngIf="submitted && f.password.errors"
+                     class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+                <br><br>
+
+                <a class="admin-page-authentication-button"
+                   (click)="onSubmit()">Login</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="admin-menu-products-colections-header-sticky">
+    <div class="admin-menu-products-colections-header-sticky-titles">
+        <h2>{{urlProduct}}</h2>
+        <a class="app-button"
+           [routerLink]="['/collections', urlProduct, 'add-product']">Create Product</a>
+           <a class="app-button"
+           [routerLink]="['/collections', urlProduct, 'add-product']">Delete Colection</a>
+        <br>
+    </div>
+</div>
+
+<div class="admin-menu-products-colections-header-sticky-div">
+</div>
+<div *ngIf="loading"
+     class="admin-menu-products-colections-load">
+    <img height="150"
+         width="150"
+         src="/assets/load.gif" />
+</div>
+
+<div *ngFor='let product of this.collectionProducts'>
+    <app-collection-product-card [product]="product"></app-collection-product-card>
+</div>

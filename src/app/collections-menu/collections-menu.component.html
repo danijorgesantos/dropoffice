@@ -1,0 +1,38 @@
+<div class="admin-menu-products-colections-header-sticky">
+    <div class="admin-menu-products-colections-header-sticky-titles">
+        <p style="font-weight: bold;">You have {{this.collections.length}} Collections</p>
+    </div>
+</div>
+
+<div class="admin-menu-products-colections-header-sticky-div">
+</div>
+<!-- <div *ngIf="loading"
+     class="admin-menu-products-colections-load">
+    <img height="150"
+         width="150"
+         src="/assets/load.gif" />
+</div> -->
+
+
+<div *ngIf="loading"
+     class="admin-menu-products-colections-load">
+    <img height="150"
+         width="150"
+         src="/assets/load.gif" />
+</div>
+<div class="cards"
+     *ngIf="!loading">
+    <div routerLink="/add-collection"
+         class="collection-container">
+        <div class="collection-container-section1">
+            <p class="collection-plus p-color-white ">+</p>
+        </div>
+        <div class="collection-container-section2">
+            <p class="p-color-white ">Add a collection</p>
+        </div>
+    </div>
+
+    <app-collection-card *ngFor='let collection of this.collections'
+                         [collection]="collection"></app-collection-card>
+
+</div>

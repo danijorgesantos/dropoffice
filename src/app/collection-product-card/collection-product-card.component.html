@@ -1,0 +1,51 @@
+<div class="admin-component-product-card-container">
+    <div style='
+    border-radius: 2px;
+    border: 1px solid #EAEAEA;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:37px;
+    width:37px;
+    background-color: #cccccc;
+    background-position: center;'
+         [style.background-image]="'url('+product.mainPhoto1+')'"
+         alt="pname"></div>
+    <div class="admin-component-product-card-container-name admin-component-product-card-font">
+        {{product.name}}
+    </div>
+    <div class="admin-component-product-card-container-description admin-component-product-card-font">
+        {{product.description}}
+    </div>
+    <div class="admin-component-product-card-container-price admin-component-product-card-font">
+        {{product.price | currency}}
+    </div>
+    <div class="admin-component-product-card-container-update admin-component-product-card-font">
+        <div style='
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height:30px;
+        width:30px;
+        background-position: center;
+        background-image: url("/assets/draw.svg");'
+             alt="pname"></div>
+    </div>
+    <div  class="admin-component-product-card-container-delete admin-component-product-card-font">
+        <div style='
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height:30px;
+        width:30px;
+        background-position: center;
+        background-image: url("/assets/trash.svg");'
+             alt="pname"></div>
+    </div>
+</div>

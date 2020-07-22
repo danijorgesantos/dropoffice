@@ -1,0 +1,72 @@
+.admin-page-authentication-container {
+    background: #27276b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #22225d, #27276b); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #22225d,
+        #27276b
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-page-authentication-container-box {
+    background: #fff;
+    width: 60%;
+    height: 80%;
+    border-radius: 4px;
+}
+
+.admin-page-authentication-container-box-top{
+    width: 100%;
+    height:50%;
+    background: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.admin-menu-products-colections-product-input {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.admin-page-authentication-container-box-top-input-button {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.admin-page-authentication-button {
+    background: #27276b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #294095, #174d96); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #294095,
+        #174d96
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    padding: 6px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-right:20px;
+    margin-left:20px;
+    border-radius: 2px;
+}
+
+.admin-page-authentication-company {
+    color: #174d96;
+    font-size: medium;
+    font-weight: bold;
+}
+
+

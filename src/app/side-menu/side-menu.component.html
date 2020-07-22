@@ -1,0 +1,77 @@
+<div class="admin-page-menu-template">
+    <div class="admin-page-menu-nav">
+        <div class="admin-page-menu-nav-link-container"></div>
+        <div routerLink="/"
+             class="admin-page-menu-nav-link-container">
+            <div style='
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height:20px;
+            margin-left: 25px;
+            width:20px;
+            background-position: center;
+            background-image: url("/assets/home.svg");'
+                 alt="pname"></div>
+            <p class="admin-page-menu-p-margin">
+                Home
+            </p>
+        </div>
+        <div routerLink="/collections"
+             class="admin-page-menu-nav-link-container">
+            <div style='
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height:20px;
+            margin-left: 25px;
+            width:20px;
+            background-position: center;
+            background-image: url("/assets/computer.svg");'
+                 alt="pname"></div>
+            <p class="admin-page-menu-p-margin">Collections</p>
+        </div>
+        <div class="admin-page-menu-nav-link-container">
+            <div style='
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height:20px;
+            margin-left: 25px;
+            width:20px;
+            background-position: center;
+            background-image: url("/assets/business-and-finance.svg");'
+                 alt="pname"></div>
+            <p class="admin-page-menu-p-margin">Logistics</p>
+        </div>
+        <div (click)="logout()"
+             class="admin-page-menu-nav-link-container">
+            <div style='
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height:20px;
+            margin-left: 25px;
+            width:20px;
+            background-position: center;
+            background-image: url("/assets/sign.svg");'
+                 alt="pname"></div>
+            <p class="admin-page-menu-p-margin">Logout</p>
+        </div>
+    </div>
+
+    <div class="admin-page-menu-nav-div"></div>
+
+    <div class="admin-page-menu-components">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>
