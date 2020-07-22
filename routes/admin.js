@@ -16,12 +16,6 @@ const User = require('../models/AdminUser');
 const Product = require('../models/Product');
 const Collection = require('../models/Collection');
 
-// @route   admin/test
-// @desc    Tests users route
-// @access  Public
-router.get('/test', (req, res) => res.json({ msg: 'it works for test' }));
-
-
 // Authentication ----------------------------------------------------------------------------------------------------
 
 // @route   POST admin/register
@@ -94,17 +88,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         email: req.user.email
     });
 })
-
-
-
-
-
-
-
-
-
-
-
 
 // o que eu preciso está daqui para baixo ----------------------------------------------------------------------------------------------
 
@@ -246,15 +229,5 @@ router.post('/deleteProductById', (req, res) => {
         console.log("Successful deletion");
     });
 })
-
-
-// @route   Get articles/getArticle
-// @desc    get a single product from the database
-// @access  Public
-// router.post('/getArticle', (req, res) => {
-//   Article.findOne({url: req.body.id})
-//     .then(article => res.json(article))
-//     .catch(err => res.status(404))
-// });
 
 module.exports = router;
