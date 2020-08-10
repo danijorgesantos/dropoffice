@@ -43,4 +43,20 @@
 
   .p-color-white {
     color:white;
+    margin-top: -90px;
+  }
+
+  .delete {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 8px;
+    opacity: 0.8;
+    margin: 10px;
+    margin-left: 80%;
   }

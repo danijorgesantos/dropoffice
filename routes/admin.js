@@ -107,6 +107,18 @@ router.post('/addCollection', (req, res) => {
         .catch(err => console.log(err));
 });
 
+// @route   POST admin/deleteCollection
+// @desc    deleteCollection
+// @access  Public
+router.post('/deleteCollection', (req, res) => {
+    console.log('endpoinnt called')
+    console.log(req.body);
+    Collection.deleteOne({ _id: req.body._id }, function (err) {
+      if(err) console.log(err);
+      console.log("Successful deletion");
+    }).then((data)=> res.json(data))
+});
+
 // @route   GET admin/getAllCollections
 // @desc    get all Collections
 // @access  Public

@@ -1,7 +1,10 @@
-<div [routerLink]="['/collections' , collection.collectionUrl]">
+<div >
     <div class="collection-container"
          [style.background-image]="'url('+collection.collectionPhoto+')'">
-        <div class="collection-container-section1">
+         <div class="delete" (click)="deleteCollection(collection._id)">
+             Delete
+         </div>
+        <div class="collection-container-section1" [routerLink]="['/collections' , collection.collectionUrl]">
             <p class="collection-name p-color-white ">{{collection.collectionName}}</p>
         </div>
     </div>
