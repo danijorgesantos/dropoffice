@@ -96,15 +96,11 @@ export class CollectionService {
     updateCollections() {
     }
 
-    deleteCollection( _id: any) {
-        console.log('serviço chamado _id', _id)
-        return this.http.post<any>(`admin/deleteCollection`, {
-            _id,
-        })
-            .pipe(
-                retry(3), // retry a failed request up to 3 times
-                catchError(this.handleError) // then handle the error
-            );
+    deleteCollection( id ) {
+        console.log('service called _id', id)
+        return this.http.delete('/admin/deleteCollection/' + id).subscribe(
+            d => console.log(d), e => console.log(e)
+        )
     }
 }
 
