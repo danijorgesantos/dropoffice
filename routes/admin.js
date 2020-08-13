@@ -111,10 +111,8 @@ router.post('/addCollection', (req, res) => {
 // @desc    deleteCollection
 // @access  Public
 router.delete('/deleteCollection/:id', (req, res) => {
-    console.log('endpoinnt called')
     console.log(req.params.id);
     Collection.deleteOne({ _id: req.params.id }, function (err) {
-      console.log("Successful deletion");
     })
     .then((data)=> res.json(data))
     .catch(err => res.status(404))
