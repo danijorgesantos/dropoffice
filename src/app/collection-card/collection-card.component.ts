@@ -18,7 +18,8 @@ export class CollectionCardComponent implements OnInit {
   }
 
   public deleteCollection(id: any) {
-    console.log('deletecollection --> _id', id )
+    console.log('deletecollection --> _id', id );
+
     this.collectionService.deleteCollection(
       id
     );

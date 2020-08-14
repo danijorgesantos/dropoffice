@@ -35,7 +35,8 @@
         background-image: url("/assets/draw.svg");'
              alt="pname"></div>
     </div>
-    <div  class="admin-component-product-card-container-delete admin-component-product-card-font">
+    <div  class="admin-component-product-card-container-delete admin-component-product-card-font"
+    (click)="deleteProduct(collectionProducts._id)">
         <div style='
         -webkit-background-size: cover;
         -moz-background-size: cover;
