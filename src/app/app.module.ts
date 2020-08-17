@@ -16,6 +16,9 @@ import { CollectionCardComponent } from './collection-card/collection-card.compo
 import { SingleCollectionMenuComponent } from './single-collection-menu/single-collection-menu.component';
 import { AddProductToCollectionComponent } from './add-product-to-collection/add-product-to-collection.component';
 import { CollectionProductCardComponent } from './collection-product-card/collection-product-card.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageCardComponent } from './message-card/message-card.component';
+import { ProductUpdatePageComponent } from './product-update-page/product-update-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { CollectionProductCardComponent } from './collection-product-card/collec
     CollectionCardComponent,
     SingleCollectionMenuComponent,
     AddProductToCollectionComponent,
-    CollectionProductCardComponent
+    CollectionProductCardComponent,
+    MessagesComponent,
+    MessageCardComponent,
+    ProductUpdatePageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -141,13 +141,6 @@ export class AddProductToCollectionComponent implements OnInit {
 
   public onSubmit() {
     this.submitted = true;
-    console.log(this.response1);
-    console.log(this.response2);
-    console.log(this.response3);
-    console.log(this.response4);
-    console.log(this.response5);
-    console.log(this.response6);
-
     this.collectionService.addProductToCollection(
       this.f.nameOfProduct.value,
       this.f.urlOfProduct.value,

@@ -16,6 +16,8 @@ const User = require('../models/AdminUser');
 const Product = require('../models/Product');
 const Collection = require('../models/Collection');
 
+const Message = require('../models/Messages');
+
 // Authentication ----------------------------------------------------------------------------------------------------
 
 // @route   POST admin/register
@@ -90,6 +92,17 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 })
 
 // o que eu preciso está daqui para baixo ----------------------------------------------------------------------------------------------
+
+
+// @route   GET admin/getAllMessages
+// @desc    get all Messages
+// @access  Public
+router.get('/getAllMessages', (req, res) => {
+    Message.find()
+        .sort({ date: -1 })
+        .then(messages => res.json(messages))
+        .catch(err => res.status(404))
+});
 
 // @route   POST admin/addCollection
 // @desc    adicionar produto

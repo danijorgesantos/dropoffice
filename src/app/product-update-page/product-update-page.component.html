@@ -1,0 +1,191 @@
+<div class="admin-menu-products-colections-product-container-background">
+    <div class="admin-menu-products-colections-product-container-header">
+           <a routerLink="/products-colections">Back to Products</a>
+           <h2>Create a Product</h2>
+    </div>
+    <form [formGroup]="loginForm2"
+          (ngSubmit)="onSubmit()">
+           <div class="admin-menu-products-colections-product-container-margins-flex">
+                  <div class="admin-menu-products-colections-product-container-margins">
+                         <br>
+                         <legend><span class="number">1</span> &nbsp;Update Photos of Product</legend>
+                         <br>
+
+                         <div class="admin-menu-products-colections-product-container-photos">
+
+                                <div class="cards">
+                                       <div>
+                                              <div style='
+                                              border-radius: 4px;
+                                              border: 1px solid #EAEAEA;
+                                              -webkit-background-size: cover;
+                                              -moz-background-size: cover;
+                                              -o-background-size: cover;
+                                              background-size: cover;
+                                              background-repeat: no-repeat;
+                                              height:200px;
+                                              width:200px;
+                                              background-color: #cccccc;
+                                              background-position: center;'
+                                                   [style.background-image]="'url('+response1+')'"
+                                                   alt="pname"></div>
+                                              <br>
+                                              <input type='file'
+                                                     (change)='onFileSelected1($event)'>
+                                              <br>
+                                       </div>
+                                       <br>
+
+                                       <div>
+                                              <div style='
+                                              border-radius: 4px;
+                                              border: 1px solid #EAEAEA;
+                                              -webkit-background-size: cover;
+                                              -moz-background-size: cover;
+                                              -o-background-size: cover;
+                                              background-size: cover;
+                                              background-repeat: no-repeat;
+                                              height:200px;
+                                              width:200px;
+                                              background-color: #cccccc;
+                                              background-position: center;'
+                                                   [style.background-image]="'url('+response2+')'"
+                                                   alt="pname"></div>
+                                              <br>
+                                              <input type='file'
+                                                     (change)='onFileSelected2($event)'>
+                                              <br>
+                                       </div>
+                                       <br>
+
+                                       <div>
+                                              <div style='
+                                              border-radius: 4px;
+                                              border: 1px solid #EAEAEA;
+                                              -webkit-background-size: cover;
+                                              -moz-background-size: cover;
+                                              -o-background-size: cover;
+                                              background-size: cover;
+                                              background-repeat: no-repeat;
+                                              height:200px;
+                                              width:200px;
+                                              background-color: #cccccc;
+                                              background-position: center;'
+                                                   [style.background-image]="'url('+response3+')'"
+                                                   alt="pname"></div>
+                                              <br>
+                                              <input type='file'
+                                                     (change)='onFileSelected3($event)'>
+                                              <br>
+                                       </div>
+                                       <br>
+
+                                       <div>
+                                              <div style='
+                                              border-radius: 4px;
+                                              border: 1px solid #EAEAEA;
+                                              -webkit-background-size: cover;
+                                              -moz-background-size: cover;
+                                              -o-background-size: cover;
+                                              background-size: cover;
+                                              background-repeat: no-repeat;
+                                              height:200px;
+                                              width:200px;
+                                              background-color: #cccccc;
+                                              background-position: center;'
+                                                   [style.background-image]="'url('+response4+')'"
+                                                   alt="pname"></div>
+                                              <br>
+                                              <input type='file'
+                                                     (change)='onFileSelected4($event)'>
+                                              <br>
+                                       </div>
+                                       <br>
+
+                                       <div>
+                                              <div style='
+                                              border-radius: 2px;
+                                              border: 1px solid #EAEAEA;
+                                              -webkit-background-size: cover;
+                                              -moz-background-size: cover;
+                                              -o-background-size: cover;
+                                              background-size: cover;
+                                              background-repeat: no-repeat;
+                                              height:200px;
+                                              width:200px;
+                                              background-color: #cccccc;
+                                              background-position: center;'
+                                                   [style.background-image]="'url('+response5+')'"
+                                                   alt="pname"></div>
+                                              <br>
+                                              <input type='file'
+                                                     (change)='onFileSelected5($event)'>
+                                              <br>
+                                       </div>
+                                       <br>
+
+                                       <div>
+                                              <div style='
+                                              border-radius: 2px;
+                                              border: 1px solid #EAEAEA;
+                                              -webkit-background-size: cover;
+                                              -moz-background-size: cover;
+                                              -o-background-size: cover;
+                                              background-size: cover;
+                                              background-repeat: no-repeat;
+                                              height:200px;
+                                              width:200px;
+                                              background-color: #cccccc;
+                                              background-position: center;'
+                                                   [style.background-image]="'url('+response6+')'"
+                                                   alt="pname"></div>
+                                              <br>
+                                              <input type='file'
+                                                     (change)='onFileSelected6($event)'>
+                                              <br>
+                                       </div>
+                                       <br>
+                                </div>
+                         </div>
+                         <br>
+                         <br><br>
+                         <legend><span class="number">2</span> &nbsp;Update the Name of the Product</legend>
+                         <input class="app-input"
+                                type="text"
+                                autocomplete="on"
+                                formControlName="nameOfProduct"
+                                value="Name of the product.."><br><br>
+                         <legend><span class="number">3</span> &nbsp;Update the url for the product</legend>
+                         <input class="app-input"
+                                type="text"
+                                autocomplete="on"
+                                formControlName="urlOfProduct"
+                                value="Name of the product.."><br><br>
+                         <legend><span class="number">4</span> &nbsp;Update Description</legend>
+                         <input class="app-input"
+                                autocomplete="on"
+                                type="text"
+                                formControlName="descriptionOfProduct"
+                                value="Description of the Product.."><br><br>
+                         <legend><span class="number">5</span> &nbsp;Update Detailed Description</legend>
+                         <input class="app-input"
+                                autocomplete="on"
+                                type="text"
+                                formControlName="detailedDescriptionOfProduct"
+                                value="Detailed Description of the Product.."><br><br>
+                         <legend><span class="number">6</span> &nbsp;Update Price</legend>
+                         <input class="app-input"
+                                autocomplete="on"
+                                type="text"
+                                formControlName="price"
+                                value="Price.."><br><br>
+                         <a class="app-button"
+                            (click)="onSubmit()">Update Product</a>
+                         <br>
+                         <br>
+                         <br>
+                         <br>
+                  </div>
+           </div>
+    </form>
+</div>

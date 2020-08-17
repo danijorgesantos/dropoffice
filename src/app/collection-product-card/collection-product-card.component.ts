@@ -8,10 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CollectionProductCardComponent implements OnInit {
 
   @Input() product: any;
+  @Input() urlProduct: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log('product',this.product)
   }
 
 }

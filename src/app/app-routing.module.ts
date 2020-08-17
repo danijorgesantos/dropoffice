@@ -9,6 +9,8 @@ import { CollectionsMenuComponent } from './collections-menu/collections-menu.co
 import { AddCollectionComponent } from './add-collection/add-collection.component';
 import { SingleCollectionMenuComponent } from './single-collection-menu/single-collection-menu.component';
 import { AddProductToCollectionComponent } from './add-product-to-collection/add-product-to-collection.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ProductUpdatePageComponent } from './product-update-page/product-update-page.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,14 @@ const routes: Routes = [
       {
         path: 'collections/:url/add-product', // child route path
         component: AddProductToCollectionComponent // child route component that the router renders
+      },
+      {
+        path: 'collections/:url/:id/update', // update product
+        component: ProductUpdatePageComponent // child route component that the router renders
+      },
+      {
+        path: 'messages',
+        component: MessagesComponent // another child route component that the router renders
       },
     ]
   },

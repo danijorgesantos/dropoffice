@@ -24,6 +24,7 @@ export class AdminComponentProductCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log('collectionProducts', this.collectionProducts);
   }
 
   public deleteProduct(id) {

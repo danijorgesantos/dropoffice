@@ -1,0 +1,21 @@
+<div class="admin-menu-products-colections-header-sticky">
+    <div class="admin-menu-products-colections-header-sticky-titles">
+        <p style="font-weight: bold;">You have {{messages.length}} New Messages</p>
+    </div>
+</div>
+
+<div class="admin-menu-products-colections-header-sticky-div">
+</div>
+
+<div *ngIf="loading"
+     class="admin-menu-products-colections-load">
+    <img height="150"
+         width="150"
+         src="/assets/load.gif" />
+</div>
+<div class="cards">
+
+    <app-message-card *ngFor='let message of messages'
+                         [message]="message"></app-message-card>
+
+</div>

@@ -1,0 +1,45 @@
+<div class="message-card">
+    <!-- <div style='
+    border-radius: 2px;
+    border: 1px solid #EAEAEA;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:37px;
+    width:37px;
+    background-color: #cccccc;
+    background-position: center;'
+         [style.background-image]="'url('+collectionProducts.mainPhoto1+')'"
+         alt="pname"></div> -->
+    <div class="">
+        {{message.name}}
+    </div>
+    <br>
+    <br>
+    <div class="">
+        {{message.email}}
+    </div>
+    <br>
+    <br>
+    <div class="">
+        <!-- {{collectionProducts.price | currency}} -->
+        {{message.phone}}
+    </div>
+    <br>
+    <br>
+    <div  class="admin-component-product-card-container-delete admin-component-product-card-font">
+        <div style='
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height:30px;
+        width:30px;
+        background-position: center;
+        background-image: url("/assets/delete.svg");'
+             alt="pname"></div>
+    </div>
+</div>

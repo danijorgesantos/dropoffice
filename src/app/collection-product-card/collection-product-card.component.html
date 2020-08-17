@@ -22,15 +22,16 @@
     <div class="admin-component-product-card-container-price admin-component-product-card-font">
         {{product.price | currency}}
     </div>
-    <div class="admin-component-product-card-container-update admin-component-product-card-font">
+    <div class="admin-component-product-card-container-update admin-component-product-card-font"
+    [routerLink]="['/collections', urlProduct, product._id, 'update']">
         <div style='
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
         background-repeat: no-repeat;
-        height:30px;
-        width:30px;
+        height:25px;
+        width:25px;
         background-position: center;
         background-image: url("/assets/draw.svg");'
              alt="pname"></div>
@@ -42,8 +43,8 @@
         -o-background-size: cover;
         background-size: cover;
         background-repeat: no-repeat;
-        height:30px;
-        width:30px;
+        height:25px;
+        width:25px;
         background-position: center;
         background-image: url("/assets/trash.svg");'
              alt="pname"></div>
