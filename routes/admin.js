@@ -94,6 +94,61 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 // o que eu preciso está daqui para baixo ----------------------------------------------------------------------------------------------
 
 
+// @route   GET admin/getSingleProduct
+// @desc    get all Messages
+// @access  Public
+router.post('/getSingleProduct', (req, res) => {
+    console.log('req.body',req.body)
+    Collection.findOne({ collectionUrl: req.body.urlCollection })
+        .then(colection => {
+            const collectionProducts = colection.collectionProducts
+            for(let i = 0; i < collectionProducts.length; i++)
+            {
+                if(parseInt(collectionProducts[i]._id) === parseInt(req.body.productId)) res.json(collectionProducts[i])
+                break;
+            }
+        })
+});
+
+
+// @route   GET admin/updateProductFromCollection
+// @desc    get all Messages
+// @access  Public
+router.get('/updateProductFromCollection', (req, res) => {
+    const newProduct = new Product({
+        name: req.body.nameOfProduct,
+        url: req.body.urlOfProduct,
+        keywords: req.body.keywords,
+        description: req.body.descriptionOfProduct,
+        detailedDescription: req.body.detailedDescriptionOfProduct,
+        price: req.body.price,
+        mainPhoto1: req.body.mainPhoto1,
+        mainPhoto2: req.body.mainPhoto2,
+        mainPhoto3: req.body.mainPhoto3,
+        mainPhoto4: req.body.mainPhoto4,
+        mainPhoto5: req.body.mainPhoto5,
+        mainPhoto6: req.body.mainPhoto6,
+    });
+
+    console.log('newProduct', newProduct)
+
+    Collection.findOne({ collectionUrl: req.body.collectionUrl })
+        .then(colection => {
+            const collectionProducts = colection.collectionProducts
+            console.log('collectionProducts', collectionProducts)
+
+
+            // collectionProducts.push(newProduct)
+            Collection.findOneAndUpdate(
+                { collectionUrl: req.body.collectionUrl },
+                { collectionProducts: collectionProducts },
+                { new: true })
+                .then(product => res.json(product))
+                .catch(err => console.log(err));
+        })
+});
+
+
 // @route   GET admin/getAllMessages
 // @desc    get all Messages
 // @access  Public
@@ -127,8 +182,8 @@ router.delete('/deleteCollection/:id', (req, res) => {
     console.log(req.params.id);
     Collection.deleteOne({ _id: req.params.id }, function (err) {
     })
-    .then((data)=> res.json(data))
-    .catch(err => res.status(404))
+        .then((data) => res.json(data))
+        .catch(err => res.status(404))
 });
 
 // @route   GET admin/getAllCollections
@@ -165,7 +220,7 @@ router.post('/addProductToCollection', (req, res) => {
             collectionProducts.push(newProduct)
             Collection.findOneAndUpdate(
                 { collectionUrl: req.body.collectionUrl },
-                { collectionProducts: collectionProducts},
+                { collectionProducts: collectionProducts },
                 { new: true })
                 .then(product => res.json(product))
                 .catch(err => console.log(err));

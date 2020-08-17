@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../_models/user';
 
 @Injectable({ providedIn: 'root' })
+
 export class ProductService {
     constructor(private http: HttpClient) { }
 
@@ -60,6 +61,19 @@ export class ProductService {
 
     getAllProducts() {
         return this.http.get<any>(`admin/getAllProducts`)
+            .pipe(
+                retry(3), // retry a failed request up to 3 times
+                catchError(this.handleError) // then handle the error
+            );
+    }
+
+    getSingleProduct(urlCollection, productId) {
+        console.log('urlCollection',urlCollection)
+        console.log('productId', productId)
+        return this.http.post<any>(`admin/getSingleProduct`, {
+            urlCollection,
+            productId
+        })
             .pipe(
                 retry(3), // retry a failed request up to 3 times
                 catchError(this.handleError) // then handle the error
