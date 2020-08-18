@@ -98,7 +98,27 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 // @desc    get all Messages
 // @access  Public
 router.post('/getSingleProduct', (req, res) => {
+    Collection.findOne({ collectionUrl: req.body.urlCollection })
+        .then(colection => {
+            const collectionProducts = colection.collectionProducts
+            for(let i = 0; i < collectionProducts.length; i++)
+            {
+                if(collectionProducts[i]._id.toString() == req.body.productId.toString()) {
+                    res.json(collectionProducts[i])
+                    break;
+                }
+            }
+        })
+});
+
+// @route   GET admin/updateSingleProduct
+// @desc    get all Messages
+// @access  Public
+router.post('/updateSingleProduct', (req, res) => {
     console.log('req.body',req.body)
+
+    // preciso da info no req.body do novo produto
+
     Collection.findOne({ collectionUrl: req.body.urlCollection })
         .then(colection => {
             const collectionProducts = colection.collectionProducts
@@ -109,8 +129,26 @@ router.post('/getSingleProduct', (req, res) => {
                 console.log('req.body.productId',req.body.productId)
                 console.log('-------------')
                 if(collectionProducts[i]._id.toString() == req.body.productId.toString()) {
+
+                    // guardar a coleção com o produto feito o update
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     res.json(collectionProducts[i])
                     break;
+
+
                 }
             }
         })
