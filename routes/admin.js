@@ -104,8 +104,14 @@ router.post('/getSingleProduct', (req, res) => {
             const collectionProducts = colection.collectionProducts
             for(let i = 0; i < collectionProducts.length; i++)
             {
-                if(parseInt(collectionProducts[i]._id) === parseInt(req.body.productId)) res.json(collectionProducts[i])
-                break;
+                console.log('collectionProducts[i]._id',collectionProducts[i]._id)
+                console.log('-------------')
+                console.log('req.body.productId',req.body.productId)
+                console.log('-------------')
+                if(collectionProducts[i]._id.toString() == req.body.productId.toString()) {
+                    res.json(collectionProducts[i])
+                    break;
+                }
             }
         })
 });

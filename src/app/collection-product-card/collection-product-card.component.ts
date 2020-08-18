@@ -13,7 +13,6 @@ export class CollectionProductCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('product',this.product)
   }
 
 }

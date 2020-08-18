@@ -60,7 +60,7 @@ export class ProductUpdatePageComponent implements OnInit {
       this.urlCollection = params['url'];
       this.productId = params['id'];
       console.log(this.urlCollection);
-      console.log(this.productId);
+      console.log('dentro do url this.productId', this.productId);
       this.productService.getSingleProduct(this.urlCollection, this.productId)
         .pipe(first())
         .subscribe(
