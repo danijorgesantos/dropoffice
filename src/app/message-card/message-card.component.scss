@@ -1,11 +1,27 @@
 .message-card {
     width:calc(100vw - 250px);
+    height:auto;
+    border-bottom: 1px 	#E8E8E8 solid;
+}
+
+.section1 {
+    width:100%;
     height:68px;
-    background:white;
     display: flex; 
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+}
+
+.section2 {
+    width:100%;
+    height:auto;
+    display: flex; 
+    flex-direction: column;
+}
+
+.section3 {
+    
 }
 
 .message-card:hover {
