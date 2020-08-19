@@ -11,8 +11,10 @@ import { MessageService } from '../_services/messages.service';
 export class MessagesComponent implements OnInit {
 
   public messages = [];
-  public loading = false;
+  public loading = true;
   public error;
+
+
 
   constructor(
     private messageService: MessageService,
@@ -29,7 +31,6 @@ export class MessagesComponent implements OnInit {
       .subscribe(
         data => {
           if (data) {
-            console.log(data)
             this.messages = data;
             this.loading = false;
           }
