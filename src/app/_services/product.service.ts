@@ -68,7 +68,7 @@ export class ProductService {
     }
 
     getSingleProduct(urlCollection, productId) {
-        console.log('urlCollection',urlCollection)
+        console.log('urlCollection', urlCollection)
         console.log('productId', productId)
         return this.http.post<any>(`admin/getSingleProduct`, {
             urlCollection,
@@ -80,7 +80,20 @@ export class ProductService {
             );
     }
 
-    updateProduct() {
+    updateProduct(
+        urlCollection: string,
+        productId: string,
+        toUpdate
+        ) {
+        return this.http.post<any>(`admin/updateSingleProduct`, {
+            urlCollection,
+            productId,
+            toUpdate
+        })
+            .pipe(
+                retry(3), // retry a failed request up to 3 times
+                catchError(this.handleError) // then handle the error
+            );
     }
 
     deleteProduct(id: string) {

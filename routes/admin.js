@@ -101,9 +101,8 @@ router.post('/getSingleProduct', (req, res) => {
     Collection.findOne({ collectionUrl: req.body.urlCollection })
         .then(colection => {
             const collectionProducts = colection.collectionProducts
-            for(let i = 0; i < collectionProducts.length; i++)
-            {
-                if(collectionProducts[i]._id.toString() == req.body.productId.toString()) {
+            for (let i = 0; i < collectionProducts.length; i++) {
+                if (collectionProducts[i]._id.toString() == req.body.productId.toString()) {
                     res.json(collectionProducts[i])
                     break;
                 }
@@ -115,76 +114,30 @@ router.post('/getSingleProduct', (req, res) => {
 // @desc    get all Messages
 // @access  Public
 router.post('/updateSingleProduct', (req, res) => {
-    console.log('req.body',req.body)
-
-    // preciso da info no req.body do novo produto
-
+    const newProduct = new Product({
+        name: req.body.toUpdate.name,
+        url: req.body.toUpdate.url,
+        description: req.body.toUpdate.description,
+        detailedDescription: req.body.toUpdate.detailedDescription,
+        price: req.body.toUpdate.price,
+        mainPhoto1: req.body.toUpdate.mainPhoto1,
+        mainPhoto2: req.body.toUpdate.mainPhoto2,
+        mainPhoto3: req.body.toUpdate.mainPhoto3,
+        mainPhoto4: req.body.toUpdate.mainPhoto4,
+        mainPhoto5: req.body.toUpdate.mainPhoto5,
+        mainPhoto6: req.body.toUpdate.mainPhoto6,
+    });
     Collection.findOne({ collectionUrl: req.body.urlCollection })
         .then(colection => {
-            const collectionProducts = colection.collectionProducts
-            for(let i = 0; i < collectionProducts.length; i++)
-            {
-                console.log('collectionProducts[i]._id',collectionProducts[i]._id)
-                console.log('-------------')
-                console.log('req.body.productId',req.body.productId)
-                console.log('-------------')
-                if(collectionProducts[i]._id.toString() == req.body.productId.toString()) {
-
-                    // guardar a coleção com o produto feito o update
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    res.json(collectionProducts[i])
+            const collectionProducts = colection.collectionProducts;
+            for (let i = 0; i < collectionProducts.length; i++) {
+                if (collectionProducts[i]._id.toString() == req.body.productId.toString()) {
+                    collectionProducts[i] = newProduct;
                     break;
-
-
                 }
             }
-        })
-});
-
-
-// @route   GET admin/updateProductFromCollection
-// @desc    get all Messages
-// @access  Public
-router.get('/updateProductFromCollection', (req, res) => {
-    const newProduct = new Product({
-        name: req.body.nameOfProduct,
-        url: req.body.urlOfProduct,
-        keywords: req.body.keywords,
-        description: req.body.descriptionOfProduct,
-        detailedDescription: req.body.detailedDescriptionOfProduct,
-        price: req.body.price,
-        mainPhoto1: req.body.mainPhoto1,
-        mainPhoto2: req.body.mainPhoto2,
-        mainPhoto3: req.body.mainPhoto3,
-        mainPhoto4: req.body.mainPhoto4,
-        mainPhoto5: req.body.mainPhoto5,
-        mainPhoto6: req.body.mainPhoto6,
-    });
-
-    console.log('newProduct', newProduct)
-
-    Collection.findOne({ collectionUrl: req.body.collectionUrl })
-        .then(colection => {
-            const collectionProducts = colection.collectionProducts
-            console.log('collectionProducts', collectionProducts)
-
-
-            // collectionProducts.push(newProduct)
             Collection.findOneAndUpdate(
-                { collectionUrl: req.body.collectionUrl },
+                { collectionUrl: req.body.urlCollection },
                 { collectionProducts: collectionProducts },
                 { new: true })
                 .then(product => res.json(product))
@@ -192,6 +145,18 @@ router.get('/updateProductFromCollection', (req, res) => {
         })
 });
 
+// @route   GET admin/deleteProductFromCollection
+// @desc    delete product from collection
+// @access  Public
+router.get('/deleteProductFromCollection', (req, res) => {
+    //id da coleção
+    //id do produto
+    
+    Message.find()
+        .sort({ date: -1 })
+        .then(messages => res.json(messages))
+        .catch(err => res.status(404))
+});
 
 // @route   GET admin/getAllMessages
 // @desc    get all Messages
@@ -281,43 +246,6 @@ router.post('/getAllProductsFromCollection', (req, res) => {
         .catch(err => res.status(404))
 });
 
-
-// @route   POST admin/addProduct
-// @desc    adicionar produto
-// @access  Public
-router.post('/addProduct', (req, res) => {
-
-    console.log(req.body);
-    const newProduct = new Product({
-        name: req.body.nameOfProduct,
-        url: req.body.urlOfProduct,
-        keywords: req.body.keywords,
-        description: req.body.descriptionOfProduct,
-        detailedDescription: req.body.detailedDescriptionOfProduct,
-        price: req.body.price,
-        mainPhoto1: req.body.mainPhoto1,
-        mainPhoto2: req.body.mainPhoto2,
-        mainPhoto3: req.body.mainPhoto3,
-        mainPhoto4: req.body.mainPhoto4,
-        mainPhoto5: req.body.mainPhoto5,
-        mainPhoto6: req.body.mainPhoto6,
-    });
-    newProduct
-        .save()
-        .then(product => res.json(product))
-        .catch(err => console.log(err));
-});
-
-// @route   GET admin/getAllProducts
-// @desc    get all products
-// @access  Public
-router.get('/getAllProducts', (req, res) => {
-    Product.find()
-        .sort({ date: -1 })
-        .then(articles => res.json(articles))
-        .catch(err => res.status(404))
-});
-
 // @route   GET admin/upload
 // @desc    fazer upload duma imagem para o cloudinary
 // @access  Public
@@ -336,21 +264,6 @@ router.post('/upload', (req, res) => {
             'result': result
         })
     })
-})
-
-
-
-// @route   GET admin/deleteProductById
-// @desc    fazer delete dum producto
-// @access  Public
-
-
-router.post('/deleteProductById', (req, res) => {
-    console.log(req.body)
-    Product.findByIdAndDelete(req.body.id, function (err) {
-        if (err) console.log(err);
-        console.log("Successful deletion");
-    });
 })
 
 module.exports = router;

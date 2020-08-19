@@ -167,19 +167,25 @@ export class ProductUpdatePageComponent implements OnInit {
 
   public onSubmit() {
     this.submitted = true;
-    this.collectionService.addProductToCollection(
-      this.f.nameOfProduct.value,
-      this.f.urlOfProduct.value,
-      this.f.descriptionOfProduct.value,
-      this.f.detailedDescriptionOfProduct.value,
-      this.f.price.value,
-      this.response1,
-      this.response2,
-      this.response3,
-      this.response4,
-      this.response5,
-      this.response6,
-      this.urlCollection
+    const dataToUpdate = {
+      name: this.f.nameOfProduct.value,
+      url: this.f.urlOfProduct.value,
+      keywords: '',
+      description: this.f.descriptionOfProduct.value,
+      detailedDescription: this.f.detailedDescriptionOfProduct.value,
+      price: this.f.price.value,
+      mainPhoto1: this.response1,
+      mainPhoto2: this.response2,
+      mainPhoto3: this.response3,
+      mainPhoto4: this.response4,
+      mainPhoto5: this.response5,
+      mainPhoto6: this.response6,
+    }
+
+    this.productService.updateProduct(
+      this.urlCollection,
+      this.productId,
+      dataToUpdate
     )
       .pipe(first())
       .subscribe(
